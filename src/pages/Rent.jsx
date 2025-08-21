@@ -1,60 +1,12 @@
 import React, { useState } from 'react';
 import PropertyCard from '../components/PropertyCard';
-
+import { rentalProperties } from './propertyData';
 const Rent = () => {
   const [filters, setFilters] = useState({
     bedrooms: '',
     priceRange: [0, 5000],
     propertyType: ''
   });
-
-  // Sample rental properties data
-  const rentalProperties = [
-    {
-      id: 1,
-      title: 'Modern Downtown Apartment',
-      address: '123 City Ave, New York, NY',
-      price: '$2,500/mo',
-      beds: 2,
-      baths: 1,
-      sqft: 1200,
-      type: 'Apartment',
-      image: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-    },
-    {
-      id: 2,
-      title: 'Cozy Suburban House',
-      address: '456 Oak Lane, Austin, TX',
-      price: '$1,800/mo',
-      beds: 3,
-      baths: 2,
-      sqft: 1800,
-      type: 'House',
-      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-    },
-    {
-      id: 3,
-      title: 'Luxury Waterfront Condo',
-      address: '789 Beach Blvd, Miami, FL',
-      price: '$3,200/mo',
-      beds: 2,
-      baths: 2,
-      sqft: 1500,
-      type: 'Condo',
-      image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-    },
-    {
-      id: 4,
-      title: 'Chic Studio Apartment',
-      address: '321 Urban St, San Francisco, CA',
-      price: '$1,950/mo',
-      beds: 1,
-      baths: 1,
-      sqft: 800,
-      type: 'Apartment',
-      image: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-    }
-  ];
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;

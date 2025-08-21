@@ -1,42 +1,32 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { propertyDetailsData } from "./propertyData"
+import Map from '../components/Map'; 
 const PropertyDetails = () => {
   const { id } = useParams();
+   const navigate = useNavigate();
 
-  // Mock property data (replace with API call)
-  const property = {
-    id: 1,
-    title: 'Modern Luxury Villa',
-    address: '123 Palm Street, Miami, FL 33139',
-    price: '$1,250,000',
-    beds: 4,
-    baths: 3,
-    sqft: 3200,
-    yearBuilt: 2018,
-    description: 'This stunning modern villa offers breathtaking ocean views with floor-to-ceiling windows, a gourmet kitchen, and a resort-style pool. Located in the heart of Miami\'s most exclusive neighborhood, this property features smart home technology and premium finishes throughout.',
-    features: [
-      'Ocean view',
-      'Smart home system',
-      'Heated infinity pool',
-      'Chef\'s kitchen',
-      'Home theater',
-      'Wine cellar',
-      'Solar panels'
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-      'https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-    ],
-    agent: {
-      name: 'Sarah Johnson',
-      phone: '(305) 555-1234',
-      email: 'sarah@realestate.com',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
-    }
+  const handleGoBack = () => {
+    navigate(-1); // Go back one page in history
+    // OR navigate('/specific-path') to go to a specific route
   };
+  
+  // Find the specific property by ID
+  const property = propertyDetailsData.find(prop => prop.id === parseInt(id));
+  
+  if (!property) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900">Property Not Found</h1>
+          <p className="mt-2 text-gray-600">The property you're looking for doesn't exist.</p>
+          <Link to="/" className="mt-4 inline-block text-blue-600 hover:text-blue-800">
+            Back to Properties
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -49,7 +39,7 @@ const PropertyDetails = () => {
                 <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                 </svg>
-                <span className="sr-only">Home</span>
+                <span className="sr-only ">Home</span>
               </Link>
             </div>
           </li>
@@ -58,7 +48,7 @@ const PropertyDetails = () => {
               <svg className="h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
               </svg>
-              <Link to="/" className="ml-2 text-sm font-medium text-gray-500 hover:text-gray-700">Properties</Link>
+              <Link to=".." className="ml-2 text-sm font-medium text-gray-500 hover:text-gray-700" onClick={handleGoBack}>Properties</Link>
             </div>
           </li>
           <li>
@@ -160,9 +150,8 @@ const PropertyDetails = () => {
           {/* Map */}
           <div className="bg-white shadow rounded-lg p-6">
             <h2 className="text-xl font-bold text-gray-900 mb-4">Location</h2>
-            <div className="h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-              <p className="text-gray-500">Map would be displayed here</p>
-            </div>
+            
+              <Map />
           </div>
         </div>
 
@@ -227,5 +216,4 @@ const PropertyDetails = () => {
     </div>
   );
 };
-
 export default PropertyDetails;

@@ -10,7 +10,6 @@ import Agents from './pages/Agents';
 import Contact from './pages/Contact';
 import Rent from './pages/Rent';
 import Buy from './pages/Buy';
-// import Footer from './pages/'
 
 function App() {
   return (
@@ -27,7 +26,8 @@ function App() {
                 <FeaturedProperties />
                 <PropertyListings />
               </>
-            } />
+            }>
+            </Route>
             
             {/* Property Details Route */}
             <Route path="/property/:id" element={<PropertyDetails />} />

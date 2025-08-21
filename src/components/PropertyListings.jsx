@@ -1,55 +1,9 @@
-// src/components/PropertyListings.js
-import React from 'react';
 import { Link } from 'react-router-dom';
-
-const properties = [
-  {
-    id: 1,
-    title: 'Modern Luxury Villa',
-    address: '123 Palm Street, Miami, FL',
-    price: '$1,250,000',
-    beds: 4,
-    baths: 3,
-    sqft: 3200,
-    image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    featured: true
-  },
-  {
-    id: 2,
-    title: 'Downtown Apartment',
-    address: '456 City Ave, New York, NY',
-    price: '$750,000',
-    beds: 2,
-    baths: 2,
-    sqft: 1200,
-    image: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    featured: false
-  },
-  {
-    id: 3,
-    title: 'Suburban Family Home',
-    address: '789 Oak Lane, Austin, TX',
-    price: '$450,000',
-    beds: 3,
-    baths: 2,
-    sqft: 2100,
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    featured: false
-  },
-  {
-    id: 4,
-    title: 'Beachfront Condo',
-    address: '101 Ocean Drive, San Diego, CA',
-    price: '$1,100,000',
-    beds: 3,
-    baths: 3,
-    sqft: 1800,
-    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    featured: true
-  },
-];
+import { featuredProperties ,} from '../pages/propertyData';
 
 const PropertyListings = () => {
+  
+  const displayProperties = featuredProperties.filter(property => property.id > 3  )
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="flex justify-between items-center mb-8">
@@ -60,7 +14,7 @@ const PropertyListings = () => {
       </div>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {properties.map((property) => (
+        {displayProperties.map((property) => (
           <div key={property.id} className="bg-white rounded-lg shadow-md overflow-hidden">
             <div className="relative">
               <img className="w-full h-48 object-cover" src={property.image} alt={property.title} />
@@ -105,9 +59,11 @@ const PropertyListings = () => {
                   {property.sqft} sqft
                 </div>
               </div>
-              <button className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md">
-                View Details
-              </button>
+                <Link to={`/property/${property.id}`} className="hover:text-blue-600">
+                  <button className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md">
+                        View Details
+                  </button>
+                </Link>
             </div>
           </div>
         ))}

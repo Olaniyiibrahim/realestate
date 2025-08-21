@@ -1,7 +1,8 @@
 // src/components/Hero.js
-import React from 'react';
-
+// import React, { useState } from 'react';
 const Hero = () => {
+  
+  
   return (
     <div className="relative bg-gray-900">
       <div className="absolute inset-0">
@@ -22,7 +23,12 @@ const Hero = () => {
           <div className="flex space-x-4">
             <div className="flex-1">
               <label htmlFor="location" className="block text-sm font-medium text-gray-700">Location</label>
-              <select id="location" className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+              <select id="location" className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+              name="propertyType"
+              // className="w-full px-4 py-2 border border-gray-300 rounded-md"
+              // onChange={handleFilterChange}
+              // value={filters.propertyType}
+              >
                 <option>All Locations</option>
                 <option>New York</option>
                 <option>Los Angeles</option>
@@ -30,16 +36,22 @@ const Hero = () => {
                 <option>Houston</option>
               </select>
             </div>
-            <div className="flex-1">
+            {/* <div className="flex-1">
               <label htmlFor="type" className="block text-sm font-medium text-gray-700">Type</label>
-              <select id="type" className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+              <select id="type" className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md" 
+              // id="propertyType"
+              name="propertyType"
+              // className="w-full px-4 py-2 border border-gray-300 rounded-md"
+              onChange={handleFilterChange}
+              value={filters.propertyType}
+              >
                 <option>All Types</option>
                 <option>House</option>
                 <option>Apartment</option>
                 <option>Condo</option>
                 <option>Land</option>
               </select>
-            </div>
+            </div> */}
           </div>
           <button className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md">
             Search Properties 
