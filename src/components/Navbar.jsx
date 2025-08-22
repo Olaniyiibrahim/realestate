@@ -1,6 +1,6 @@
 // src/components/Navbar.js
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,18 +23,18 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="text-xl font-bold text-blue-600">
+              <NavLink to="/" className="text-xl font-bold text-blue-600">
                 RealEstate
-              </Link>
+              </NavLink>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <Link
+              <NavLink
                 to="/"
                 className={getLinkClasses("/")}
                 onClick={() => handleLinkClick("/")}
               >
                 Home
-              </Link>
+              </NavLink>
               <Link
                 to="/buy"
                 className={getLinkClasses("/buy")}
@@ -42,27 +42,27 @@ const Navbar = () => {
               >
                 Buy
               </Link>
-              <Link
+              <NavLink
                 to="/rent"
                 className={getLinkClasses("/rent")}
                 onClick={() => handleLinkClick("/rent")}
               >
                 Rent
-              </Link>
-              <Link
+              </NavLink>
+              <NavLink
                 to="/agents"
                 className={getLinkClasses("/agents")}
                 onClick={() => handleLinkClick("/agents")}
               >
                 Agents
-              </Link>
-              <Link
+              </NavLink>
+              <NavLink
                 to="/contact"
                 className={getLinkClasses("/contact")}
                 onClick={() => handleLinkClick("/contact")}
               >
                 Contact
-              </Link>
+              </NavLink>
             </div>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:items-center">

@@ -1,6 +1,6 @@
 // Updated FeaturedProperties.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { propertyDetailsData, featuredProperties } from '../pages/propertyData';
 import Map from './Map';
  const FeaturedProperties = () => {
@@ -68,12 +68,12 @@ import Map from './Map';
         </div>
 
         <div className="text-center mt-8">
-          <Link 
+          <NavLink 
             to="/buy" 
             className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
           >
             View All Properties
-          </Link>
+          </NavLink>
         </div>
       </div>
       {/* <Map /> */}

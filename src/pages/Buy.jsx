@@ -11,49 +11,46 @@ const Buy = () => {
   // Sample properties for sale data
   const propertiesForSale = [
     {
-      id: 1,
-      title: 'Luxury Waterfront Villa',
-      address: '123 Palm Street, Miami, FL',
-      price: '$1,250,000',
-      beds: 4,
-      baths: 3,
-      sqft: 3200,
-      type: 'House',
-      image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-    },
-    {
-      id: 2,
-      title: 'Downtown Penthouse',
-      address: '456 Skyline Blvd, New York, NY',
-      price: '$3,750,000',
-      beds: 3,
-      baths: 3.5,
-      sqft: 2800,
-      type: 'Condo',
-      image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-    },
-    {
-      id: 3,
-      title: 'Suburban Family Home',
-      address: '789 Oak Lane, Austin, TX',
-      price: '$750,000',
-      beds: 4,
-      baths: 2.5,
-      sqft: 2400,
-      type: 'House',
-      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-    },
-    {
-      id: 4,
-      title: 'Modern Townhouse',
-      address: '321 Urban Ave, Seattle, WA',
-      price: '$950,000',
-      beds: 3,
-      baths: 2,
-      sqft: 1800,
-      type: 'Townhouse',
-      image: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-    }
+    id: 1,
+    title: 'Luxury Waterfront Villa',
+    price: '$2,500,000',
+    location: 'Miami Beach, FL',
+    beds: 5,
+    baths: 4,
+    sqft: 4500,
+    image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80' // (unchanged - pool)
+  },
+  {
+    id: 2,
+    title: 'Modern Downtown Loft',
+    price: '$1,200,000',
+    location: 'New York, NY',
+    beds: 2,
+    baths: 2,
+    sqft: 1800,
+    image: 'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80' // Changed to modern loft exterior
+  },
+  {
+    id: 3,
+    title: 'Suburban Family Home',
+    price: '$650,000',
+    location: 'Austin, TX',
+    beds: 4,
+    baths: 3,
+    sqft: 2800,
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80' // (unchanged - interior)
+  },
+  {
+    id: 5,
+    title: 'Modern Luxury Villa',
+    address: '123 Palm Street, Miami, FL',
+    price: '$1,250,000',
+    beds: 4,
+    baths: 3,
+    sqft: 3200,
+    image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6', // Changed to villa exterior
+    featured: true
+  },
   ];
 
   const handleFilterChange = (e) => {
