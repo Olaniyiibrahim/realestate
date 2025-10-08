@@ -1,8 +1,8 @@
 // Updated FeaturedProperties.js
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { propertyDetailsData, featuredProperties } from '../pages/propertyData';
-import Map from './Map';
+import { propertyDetailsData, featuredProperties } from '../properties/propertyData';
+import Map from '../../components/Map';
  const FeaturedProperties = () => {
   // Create a Set of property detail IDs for efficient lookup
   const availablePropertyIds = new Set(propertyDetailsData.map(property => property.id));
@@ -42,18 +42,18 @@ import Map from './Map';
           {displayProperties.map((property) => (
             <div key={property.id} className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="relative">
-                <Link to={`/property/${property.id}`} className="hover:text-blue-600">
+                <NavLink to={`/property/${property.id}`} className="hover:text-blue-600">
                     <img className="w-full h-48 object-cover" src={property.image} alt={property.title} />
-                </Link>
+                </NavLink>
                 <div className="absolute top-2 right-2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">
                   Featured
                 </div>
               </div>
               <div className="p-4">
                 <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                  <Link to={`/property/${property.id}`} className="hover:text-blue-600">
+                  <NavLink to={`/property/${property.id}`} className="hover:text-blue-600">
                     {property.title}
-                  </Link>
+                  </NavLink>
                 </h3>
                 <p className="text-gray-600 text-sm mb-2">{property.location}</p>
                 <p className="text-blue-600 font-bold text-lg mb-3">{property.price}</p>

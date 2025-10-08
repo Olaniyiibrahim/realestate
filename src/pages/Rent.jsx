@@ -1,26 +1,28 @@
-import React, { useState } from 'react';
-import PropertyCard from '../components/PropertyCard';
-import { rentalProperties } from './propertyData';
+import React, { useState } from "react";
+import PropertyCard from "../pages/properties/PropertyCard";
+import { rentalProperties } from "../pages/properties/propertyData";
 const Rent = () => {
   const [filters, setFilters] = useState({
-    bedrooms: '',
-    priceRange: [0, 5000],
-    propertyType: ''
+    bedrooms: "",
+    priceRange: [0, 3000000],
+    propertyType: "",
   });
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
     setFilters({
       ...filters,
-      [name]: value
+      [name]: value,
     });
   };
 
-  const filteredProperties = rentalProperties.filter(property => {
+  const filteredProperties = rentalProperties.filter((property) => {
     return (
-      (filters.bedrooms === '' || property.beds === parseInt(filters.bedrooms)) &&
-      (filters.propertyType === '' || property.type === filters.propertyType)
-  )});
+      (filters.bedrooms === "" ||
+        property.beds === parseInt(filters.bedrooms)) &&
+      (filters.propertyType === "" || property.type === filters.propertyType)
+    );
+  });
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -35,7 +37,10 @@ const Rent = () => {
       <div className="bg-white shadow rounded-lg p-6 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
-            <label htmlFor="bedrooms" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="bedrooms"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Bedrooms
             </label>
             <select
@@ -53,7 +58,10 @@ const Rent = () => {
             </select>
           </div>
           <div>
-            <label htmlFor="propertyType" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="propertyType"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Property Type
             </label>
             <select
@@ -71,22 +79,27 @@ const Rent = () => {
             </select>
           </div>
           <div>
-            <label htmlFor="priceRange" className="block text-sm font-medium text-gray-700 mb-1">
-              Max Price: ${filters.priceRange[1]}
+            <label
+              htmlFor="priceRange"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Max Price: NGN{filters.priceRange[1]}
             </label>
             <input
               type="range"
               id="priceRange"
               name="priceRange"
-              min="500"
-              max="5000"
+              min="0"
+              max="3000000000"
               step="100"
               className="w-full"
-              onChange={(e) => setFilters({...filters, priceRange: [0, e.target.value]})}
+              onChange={(e) =>
+                setFilters({ ...filters, priceRange: [0, e.target.value] })
+              }
             />
             <div className="flex justify-between text-xs text-gray-500">
-              <span>$500</span>
-              <span>$5,000</span>
+              <span>0</span>
+              <span>NGN30,000,000</span>
             </div>
           </div>
         </div>
@@ -94,25 +107,25 @@ const Rent = () => {
 
       {/* Property Listings */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {filteredProperties.map(property => (
-          <PropertyCard 
-            key={property.id}
-            property={property}
-            isRental={true}
-          />
+        {filteredProperties.map((property) => (
+          <PropertyCard key={property.id} property={property} isRental={true} />
         ))}
       </div>
 
       {filteredProperties.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-gray-500">No properties match your current filters.</p>
-          <button 
+          <p className="text-gray-500">
+            No properties match your current filters.
+          </p>
+          <button
             className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-            onClick={() => setFilters({
-              bedrooms: '',
-              priceRange: [0, 5000],
-              propertyType: ''
-            })}
+            onClick={() =>
+              setFilters({
+                bedrooms: "",
+                priceRange: [0, 5000],
+                propertyType: "",
+              })
+            }
           >
             Reset Filters
           </button>

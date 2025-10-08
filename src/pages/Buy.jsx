@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import PropertyCard from '../components/PropertyCard';
+import PropertyCard from '../pages/properties/PropertyCard';
 
 const Buy = () => {
   const [filters, setFilters] = useState({
     bedrooms: '',
-    priceRange: [0, 2000000],
+    priceRange: [0, 10000000000],
     propertyType: ''
   });
 
@@ -13,7 +13,7 @@ const Buy = () => {
     {
     id: 1,
     title: 'Luxury Waterfront Villa',
-    price: '$2,500,000',
+    price: 'NGN2,500,000',
     location: 'Miami Beach, FL',
     beds: 5,
     baths: 4,
@@ -23,7 +23,7 @@ const Buy = () => {
   {
     id: 2,
     title: 'Modern Downtown Loft',
-    price: '$1,200,000',
+    price: 'NGN1,200,000',
     location: 'New York, NY',
     beds: 2,
     baths: 2,
@@ -33,7 +33,7 @@ const Buy = () => {
   {
     id: 3,
     title: 'Suburban Family Home',
-    price: '$650,000',
+    price: 'NGN650,000',
     location: 'Austin, TX',
     beds: 4,
     baths: 3,
@@ -44,7 +44,7 @@ const Buy = () => {
     id: 5,
     title: 'Modern Luxury Villa',
     address: '123 Palm Street, Miami, FL',
-    price: '$1,250,000',
+    price: 'NGN1,250,000',
     beds: 4,
     baths: 3,
     sqft: 3200,
@@ -73,7 +73,7 @@ const Buy = () => {
   const formatPrice = (price) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'NGN',
       maximumFractionDigits: 0
     }).format(price);
   };

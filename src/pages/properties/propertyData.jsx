@@ -22,6 +22,7 @@ export const propertyDetailsData = [
         email: 'sarah@realestate.com',
         image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
       },
+      image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80',
       images: [
         'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80',
         'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80',
@@ -124,24 +125,24 @@ export const propertyDetailsData = [
       'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80'  // Bedroom
     ]
   },
-  {
-    id: 6,
-    title: 'Downtown Apartment',
-    address: '456 City Ave, New York, NY',
-    price: '$750,000',
-    beds: 2,
-    baths: 2,
-    sqft: 1200,
-    // image: 
-    featured: false,
-    images: [
-      'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80',
-      'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80',
-      'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80', // Living room
-      'https://images.unsplash.com/photo-1600121848594-d8644e57abab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80', // Dining room
-      'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80'  // Bedroom
-    ]
-  },
+  // {
+  //   id: 6,
+  //   title: 'Downtown Apartment',
+  //   address: '456 City Ave, New York, NY',
+  //   price: '$750,000',
+  //   beds: 2,
+  //   baths: 2,
+  //   sqft: 1200,
+  //   // image: 
+  //   featured: false,
+  //   images: [
+  //     'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80',
+  //     'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80',
+  //     'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80', // Living room
+  //     'https://images.unsplash.com/photo-1600121848594-d8644e57abab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80', // Dining room
+  //     'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80'  // Bedroom
+  //   ]
+  // },
   {
     id: 7,
     title: 'Suburban Family Home',
@@ -374,17 +375,17 @@ export const featuredProperties = [
     image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6', // Changed to villa exterior
     featured: true
   },
-  {
-    id: 6,
-    title: 'Downtown Apartment',
-    address: '456 City Ave, New York, NY',
-    price: '$750,000',
-    beds: 2,
-    baths: 2,
-    sqft: 1200,
-    image: 'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80', // Changed to apartment building
-    featured: false
-  },
+  // {
+  //   id: 6,
+  //   title: 'Downtown Apartment',
+  //   address: '456 City Ave, New York, NY',
+  //   price: '$750,000',
+  //   beds: 2,
+  //   baths: 2,
+  //   sqft: 1200,
+  //   image: 'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80', // Changed to apartment building
+  //   featured: false
+  // },
   {
     id: 7,
     title: 'Suburban Family Home',

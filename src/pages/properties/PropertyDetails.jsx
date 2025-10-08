@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { propertyDetailsData } from "./propertyData"
-import Map from '../components/Map'; 
+import Map from '../../components/Map'; 
 const PropertyDetails = () => {
   const { id } = useParams();
    const navigate = useNavigate();
@@ -150,7 +150,6 @@ const PropertyDetails = () => {
           {/* Map */}
           <div className="bg-white shadow rounded-lg p-6">
             <h2 className="text-xl font-bold text-gray-900 mb-4">Location</h2>
-            
               <Map />
           </div>
         </div>

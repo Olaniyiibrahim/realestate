@@ -1,5 +1,5 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import { propertyDetailsData } from "../pages/propertyData"
+import { propertyDetailsData } from "../pages/properties/propertyData"
 
 export default function Map() {
     // Get all valid locations from property data
@@ -10,12 +10,12 @@ export default function Map() {
     // Use the first valid location as the center, or provide a default
     const centerPosition = locations.length > 0 ? locations[0] : [51.505, -0.09];
     
-    console.log("All locations:", locations);
-    console.log("Center position:", centerPosition);
-    console.log("Property data:", propertyDetailsData);
+    // console.log("All locations:", locations);
+    // console.log("Center position:", centerPosition);
+    // console.log("Property data:", propertyDetailsData);
     
     return (
-        <div className="h-[700px] w-[750px] overflow-hidden border border-gray-300">
+        <div className="w-[100%] h-[100%] md:h-[700px] md:w-[750px] overflow-hidden border border-gray-300">
             <MapContainer 
                 center={centerPosition} 
                 zoom={12} 
