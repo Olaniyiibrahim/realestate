@@ -1,7 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import Button from "../../components/Button";
 import { createClient } from "@supabase/supabase-js";
 
 // Supabase client

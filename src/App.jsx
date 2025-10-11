@@ -132,11 +132,7 @@ const {
             />
             <Route
               path="/property/:id"
-              element={checkingPayment ? (
-                  <div className="flex items-center justify-center min-h-screen">
-                    <p>Checking your payment status...</p>
-                  </div>
-                ) : user && paymentSuccess ? (
+              element={user && paymentSuccess ? (
                   <ProtectedRoute>
                     <PropertyDetails />
                   </ProtectedRoute>
