@@ -13,6 +13,7 @@ const PropertyUploadForm = () => {
     baths: '',
     sqft: '',
     features: '',
+    type:'',
     main_image: '',
     images: []
   });
@@ -117,6 +118,7 @@ const PropertyUploadForm = () => {
         title: property.title,
         price: property.price,
         location: property.location,
+        type:property.type,
         beds: parseInt(property.beds) || 0,
         baths: parseInt(property.baths) || 0,
         sqft: parseInt(property.sqft) || 0,
@@ -147,6 +149,7 @@ const PropertyUploadForm = () => {
         sqft: '',
         features: '',
         main_image: '',
+        type:'Rent',
         images: []
       });
 
@@ -252,6 +255,21 @@ const PropertyUploadForm = () => {
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
+        </div>
+        <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Sale or Rent
+            </label>
+          <select
+              name="type"
+              value={property.type}
+              onChange={handleInputChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="Rent">Rent</option>
+              <option value="Sale">Sale</option>
+          </select>
+
         </div>
 
         {/* Features */}

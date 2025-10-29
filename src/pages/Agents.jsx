@@ -50,7 +50,7 @@ const Agents = () => {
             <img className="w-full h-48 object-cover" src={agent.image} alt={agent.name} />
             <div className="p-6">
               <h3 className="text-xl font-semibold text-gray-900">{agent.name}</h3>
-              <p className="text-blue-600">{agent.title}</p>
+              <p className="text-black">{agent.title}</p>
               <p className="mt-4 text-gray-600">{agent.description}</p>
               <div className="mt-6">
                 <div className="flex items-center text-gray-500">
@@ -66,7 +66,7 @@ const Agents = () => {
                   {agent.email}
                 </div>
               </div>
-              <button className="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-300">
+              <button className="mt-6 w-full bg-gray-950 hover:bg-gray-800 text-white py-2 px-4 rounded-md transition duration-300">
                 Contact Agent
               </button>
             </div>

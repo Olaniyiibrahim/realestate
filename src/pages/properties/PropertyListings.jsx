@@ -9,7 +9,7 @@ const PropertyListings = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-2xl font-bold text-gray-900">Latest Properties</h2>
-        <button className="text-blue-600 hover:text-blue-800 font-medium">
+        <button className="text-gray-600 hover:text-gray-800 font-medium">
           View All Properties
         </button>
       </div>
@@ -31,7 +31,7 @@ const PropertyListings = () => {
                   alt={property.title}
                 />
                 {property.featured && (
-                  <div className="absolute top-2 left-2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">
+                  <div className="absolute top-2 left-2 bg-black text-white text-xs font-bold px-2 py-1 rounded">
                     Featured
                   </div>
                 )}
@@ -58,7 +58,7 @@ const PropertyListings = () => {
                 <h3 className="text-lg font-semibold text-gray-900">
                   <Link
                     to={`/property/${property.id}`}
-                    className="hover:text-blue-600"
+                    className="hover:text-gray-800"
                   >
                     {property.title}
                   </Link>
@@ -125,7 +125,7 @@ const PropertyListings = () => {
                 to={`/property/${property.id}`}
                 className="hover:text-blue-600"
               >
-                <button className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md">
+                <button className="mt-4 w-full  bg-gray-950 hover:bg-gray-800 text-white py-2 px-4 rounded-md">
                   View Details
                 </button>
               </Link>

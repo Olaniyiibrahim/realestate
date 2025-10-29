@@ -4,15 +4,15 @@ import { Link, NavLink } from 'react-router-dom';
 import { PlusIcon } from '@heroicons/react/24/outline';
 import useUserType from '../../Utilities/hooks/useUserType';
 import { supabase } from '../../lib/supabase';
-import { usePaystackPayment } from '../../Utilities/usePayment';
 import SecurePaymentPage from '../auth/PayMe';
+// import propNexus from '../../assets/propNexus.jpg';
 
 const Navbar = () => {
   // Check localStorage to persist payment status across page reloads
   const [paymentSuccess, setPaymentSuccess] = useState(
     localStorage.getItem('hasAccessPayment') === 'true'
   );
-  // const [showPaymentModal, setShowPaymentModal] = useState(false);
+  
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("/");
   const { user, loading, isAgent } = useUserType();
@@ -78,8 +78,11 @@ const Navbar = () => {
           <div className="flex justify-between h-16">
             <div className="flex">
               <div className="flex-shrink-0 flex items-center">
-                <NavLink to="/" className="text-xl font-bold text-blue-600">
-                  EstatePro
+                <NavLink to="/" className="flex items-center">
+                  <span className="text-2xl font-black text-gray-600 tracking-tight" 
+                        style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}>
+                    propNexus
+                  </span>
                 </NavLink>
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -141,7 +144,7 @@ const Navbar = () => {
             {!user ? (
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                 <NavLink to="/signin">
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 my-3 rounded-md text-sm font-medium">
+                  <button className="bg-gray-950 hover:bg-gray-800 text-white px-4 py-2 my-3 rounded-md text-sm font-medium">
                     Sign In
                   </button>
                 </NavLink>
@@ -216,7 +219,7 @@ const Navbar = () => {
               {!user ? (
               <div className="sm:ml-6 sm:flex sm:items-center">
                 <NavLink to="/signin">
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+                  <button className="bg-gray-950 hover:bg-gray-800 text-white px-4 py-2 rounded-md text-sm font-medium">
                     Sign In
                   </button>
                 </NavLink>

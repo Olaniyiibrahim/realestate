@@ -68,7 +68,7 @@ const handleSubmit = async (e) => {
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
-          <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
+          <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center">
             <KeyIcon className="h-8 w-8 text-white" />
           </div>
         </div>
@@ -93,7 +93,7 @@ const handleSubmit = async (e) => {
                 onClick={() => setFormData(prev => ({ ...prev, userType: 'customer' }))}
                 className={`flex items-center justify-center px-4 py-2 rounded-md border transition-colors ${
                   formData.userType === 'customer'
-                    ? 'border-blue-500 bg-blue-50 text-blue-700'
+                    ? 'border-gray-700 shadow bg-blue-50 text-black'
                     : 'border-gray-300 text-gray-700 hover:bg-gray-50'
                 }`}
               >
@@ -105,12 +105,12 @@ const handleSubmit = async (e) => {
                 onClick={() => setFormData(prev => ({ ...prev, userType: 'agent' }))}
                 className={`flex items-center justify-center px-4 py-2 rounded-md border transition-colors ${
                   formData.userType === 'agent'
-                    ? 'border-blue-500 bg-blue-50 text-blue-700'
+                    ? 'border-gray-700 shadow bg-blue-50 text-black'
                     : 'border-gray-300 text-gray-700 hover:bg-gray-50'
                 }`}
               >
                 <BuildingStorefrontIcon className="h-5 w-5 mr-2" />
-                Agent
+                House Owner
               </button>
             </div>
           </div>
@@ -133,7 +133,7 @@ const handleSubmit = async (e) => {
                   required
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="appearance-none block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                  className="appearance-none block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-black focus:border-black"
                   placeholder="Enter your email"
                 />
               </div>
@@ -156,7 +156,7 @@ const handleSubmit = async (e) => {
                   required
                   value={formData.password}
                   onChange={handleInputChange}
-                  className="appearance-none block w-full pl-10 pr-12 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                  className="appearance-none block w-full pl-10 pr-12 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-gray-750 focus:border-black"
                   placeholder="Enter your password"
                 />
                 <button
@@ -195,7 +195,7 @@ const handleSubmit = async (e) => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {loading ? 'Signing in...' : 'Sign in'}
               </button>

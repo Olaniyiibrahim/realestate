@@ -254,7 +254,7 @@ const SignUp = () => {
                                 onClick={() => setFormData(prev => ({ ...prev, userType: 'customer' }))}
                                 className={`flex items-center justify-center px-4 py-2 rounded-md border transition-colors ${
                                     formData.userType === 'customer'
-                                        ? 'border-blue-500 bg-blue-50 text-blue-700'
+                                        ? 'border-gray-700 shadow bg-blue-50 text-black'
                                         : 'border-gray-300 text-gray-700 hover:bg-gray-50'
                                 }`}
                             >
@@ -266,12 +266,12 @@ const SignUp = () => {
                                 onClick={() => setFormData(prev => ({ ...prev, userType: 'agent' }))}
                                 className={`flex items-center justify-center px-4 py-2 rounded-md border transition-colors ${
                                     formData.userType === 'agent'
-                                        ? 'border-blue-500 bg-blue-50 text-blue-700'
+                                        ? 'border-gray-700 shadow bg-blue-50 text-black'
                                         : 'border-gray-300 text-gray-700 hover:bg-gray-50'
                                 }`}
                             >
                                 <BuildingStorefrontIcon className="h-5 w-5 mr-2" />
-                                Agent
+                                House Owner
                             </button>
                         </div>
                     </div>
@@ -292,7 +292,7 @@ const SignUp = () => {
                                     type="text"
                                     value={formData.name}
                                     onChange={handleInputChange}
-                                    className={`appearance-none block w-full pl-10 pr-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${
+                                    className={`appearance-none block w-full pl-10 pr-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-black focus:border-black ${
                                         errors.name ? 'border-red-300' : 'border-gray-300'
                                     }`}
                                     placeholder="Enter your full name"
@@ -316,7 +316,7 @@ const SignUp = () => {
                                     type="email"
                                     value={formData.email}
                                     onChange={handleInputChange}
-                                    className={`appearance-none block w-full pl-10 pr-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${
+                                    className={`appearance-none block w-full pl-10 pr-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-black focus:border-black ${
                                         errors.email ? 'border-red-300' : 'border-gray-300'
                                     }`}
                                     placeholder="Enter your email"
@@ -340,7 +340,7 @@ const SignUp = () => {
                                     type="tel"
                                     value={formData.phone}
                                     onChange={handleInputChange}
-                                    className={`appearance-none block w-full pl-10 pr-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${
+                                    className={`appearance-none block w-full pl-10 pr-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-black focus:border-black ${
                                         errors.phone ? 'border-red-300' : 'border-gray-300'
                                     }`}
                                     placeholder="Enter your phone number"
@@ -362,7 +362,7 @@ const SignUp = () => {
                                         type="text"
                                         value={formData.agencyName}
                                         onChange={handleInputChange}
-                                        className={`appearance-none block w-full px-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${
+                                        className={`appearance-none block w-full px-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-black focus:border-black ${
                                             errors.agencyName ? 'border-red-300' : 'border-gray-300'
                                         }`}
                                         placeholder="Enter your agency name"
@@ -386,7 +386,7 @@ const SignUp = () => {
                                             value={formData.nin}
                                             onChange={handleInputChange}
                                             maxLength="11"
-                                            className={`appearance-none block w-full pl-10 pr-12 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${
+                                            className={`appearance-none block w-full pl-10 pr-12 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-black focus:border-black ${
                                                 errors.nin ? 'border-red-300' : ninVerified ? 'border-green-300' : 'border-gray-300'
                                             }`}
                                             placeholder="Enter your 11-digit NIN"
@@ -395,7 +395,7 @@ const SignUp = () => {
                                             {ninVerified ? (
                                                 <CheckCircleIcon className="h-5 w-5 text-green-500" />
                                             ) : ninVerifying ? (
-                                                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-600"></div>
+                                                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-black"></div>
                                             ) : (
                                                 formData.nin.length === 11 && !ninVerified && (
                                                     <XCircleIcon className="h-5 w-5 text-red-500" />
@@ -448,7 +448,7 @@ const SignUp = () => {
                                     type={showPassword ? 'text' : 'password'}
                                     value={formData.password}
                                     onChange={handleInputChange}
-                                    className={`appearance-none block w-full pl-10 pr-12 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${
+                                    className={`appearance-none block w-full pl-10 pr-12 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-black focus:border-black ${
                                         errors.password ? 'border-red-300' : 'border-gray-300'
                                     }`}
                                     placeholder="Create a password"
@@ -483,7 +483,7 @@ const SignUp = () => {
                                     type={showConfirmPassword ? 'text' : 'password'}
                                     value={formData.confirmPassword}
                                     onChange={handleInputChange}
-                                    className={`appearance-none block w-full pl-10 pr-12 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${
+                                    className={`appearance-none block w-full pl-10 pr-12 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-black focus:border-black ${
                                         errors.confirmPassword ? 'border-red-300' : 'border-gray-300'
                                     }`}
                                     placeholder="Confirm your password"
@@ -508,7 +508,7 @@ const SignUp = () => {
                             <button
                                 type="submit"
                                 disabled={loading || (formData.userType === 'agent' && !ninVerified)}
-                                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                             >
                                 {loading ? 'Creating Account...' : 'Create Account'}
                             </button>

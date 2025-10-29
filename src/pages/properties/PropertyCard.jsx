@@ -5,14 +5,14 @@ const PropertyCard = ({ property, isRental }) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
       <div className="relative">
-        <Link to={`/property/${property.id}`} className="hover:text-blue-600">
+        <Link to={`/property/${property.id}`} className="hover:text-black">
           <img 
           src={property.image} 
           alt={property.title}
           className="w-full h-48 object-cover"
           />
         </Link>
-        <div className="absolute top-2 right-2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">
+        <div className="absolute top-2 right-2 bg-black text-white text-xs font-bold px-2 py-1 rounded">
           {isRental ? 'For Rent' : 'For Sale'}
         </div>
       </div>
@@ -32,7 +32,7 @@ const PropertyCard = ({ property, isRental }) => {
         <div className="mt-4">
           <Link 
             to={`/property/${property.id}`}
-            className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition-colors duration-300"
+            className="block w-full text-center bg-gray-950 hover:bg-gray-800 text-white py-2 px-4 rounded-md transition-colors duration-300"
           >
             View Details
           </Link>

@@ -16,9 +16,9 @@ const Footer = () => {
           
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-white text-xl font-bold">EstatePro</h3>
+            <h3 className="text-white text-xl font-bold">propNexus</h3>
             <p className="text-gray-400">
-              Helping you find your dream property since 2010. We provide exceptional service in the real estate market.
+              Helping you find your dream property since 2025. We provide exceptional service in the real estate market.
             </p>
             <div className="flex space-x-4 pt-2">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -55,11 +55,11 @@ const Footer = () => {
             <address className="not-italic space-y-3">
               <div className="flex items-start">
                 <FaMapMarkerAlt className="h-5 w-5 mt-0.5 mr-3 flex-shrink-0" />
-                <span>123 Real Estate Ave, Suite 400<br />Miami, FL 33139</span>
+                <span>123 Real Estate Ave</span>
               </div>
               <div className="flex items-center">
                 <FaPhoneSquareAlt className="h-5 w-5 mr-3 flex-shrink-0" />
-                <a href="tel:+13055551234" className="hover:text-white transition-colors">(305) 555-1234</a>
+                <a href="tel:+13055551234" className="hover:text-white transition-colors">+234 7048604171</a>
               </div>
               <div className="flex items-center">
                 <FaRegEnvelope  className="h-5 w-5 mr-3 flex-shrink-0"/>
@@ -78,12 +78,12 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Your email address"
-                className="px-4 py-2 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-4 py-2 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500"
                 required
               />
               <button
                 type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition-colors"
+                className="bg-black hover:bg-blue-800 text-white py-2 px-4 rounded-md transition-colors"
               >
                 Subscribe
               </button>
@@ -94,7 +94,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm">
-            &copy; {currentYear} EstatePro. All rights reserved.
+            &copy; {currentYear} propNexus. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy" className="text-gray-500 hover:text-white text-sm transition-colors">

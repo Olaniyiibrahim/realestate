@@ -165,7 +165,7 @@ const Buy = () => {
         <div className="text-center py-12">
           <p className="text-gray-500">No properties match your current filters.</p>
           <button 
-            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+            className="mt-4 px-4 py-2 bg-black-600 text-white rounded-md hover:bg-gray-700"
             onClick={() => setFilters({
               bedrooms: '',
               priceRange: [0, 2000000],

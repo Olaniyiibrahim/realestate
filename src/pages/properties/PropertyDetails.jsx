@@ -20,7 +20,7 @@ const PropertyDetails = () => {
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900">Property Not Found</h1>
           <p className="mt-2 text-gray-600">The property you're looking for doesn't exist.</p>
-          <Link to="/" className="mt-4 inline-block text-blue-600 hover:text-blue-800">
+          <Link to="/" className="mt-4 inline-block text-gray-800 hover:text-gray-950">
             Back to Properties
           </Link>
         </div>
@@ -200,14 +200,14 @@ const PropertyDetails = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md"
+                className="w-full bg-gray-950 hover:bg-gray-800 text-white py-2 px-4 rounded-md"
               >
                 Contact Agent
               </button>
             </form>
             <div className="mt-6 text-center">
               <p className="text-gray-600">or call directly</p>
-              <p className="text-blue-600 font-medium">{property.agent.phone}</p>
+              <p className="text-gray-950 font-medium">{property.agent.phone}</p>
             </div>
           </div>
         </div>

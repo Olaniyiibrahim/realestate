@@ -42,21 +42,21 @@ import Map from '../../components/Map';
           {displayProperties.map((property) => (
             <div key={property.id} className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="relative">
-                <NavLink to={`/property/${property.id}`} className="hover:text-blue-600">
+                <NavLink to={`/property/${property.id}`} className="hover:text-gray-950">
                     <img className="w-full h-48 object-cover" src={property.image} alt={property.title} />
                 </NavLink>
-                <div className="absolute top-2 right-2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">
+                <div className="absolute top-2 right-2 bg-gray-950 text-white text-xs font-bold px-2 py-1 rounded">
                   Featured
                 </div>
               </div>
               <div className="p-4">
                 <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                  <NavLink to={`/property/${property.id}`} className="hover:text-blue-600">
+                  <NavLink to={`/property/${property.id}`} className="hover:text-black">
                     {property.title}
                   </NavLink>
                 </h3>
                 <p className="text-gray-600 text-sm mb-2">{property.location}</p>
-                <p className="text-blue-600 font-bold text-lg mb-3">{property.price}</p>
+                <p className="text-black font-bold text-lg mb-3">{property.price}</p>
                 <div className="flex justify-between text-sm text-gray-500 border-t border-gray-100 pt-3">
                   <span>{property.beds} beds</span>
                   <span>{property.baths} baths</span>
@@ -70,7 +70,7 @@ import Map from '../../components/Map';
         <div className="text-center mt-8">
           <NavLink 
             to="/buy" 
-            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
+            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gray-800 hover:bg-gray-950"
           >
             View All Properties
           </NavLink>

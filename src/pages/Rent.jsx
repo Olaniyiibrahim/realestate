@@ -118,7 +118,7 @@ const Rent = () => {
             No properties match your current filters.
           </p>
           <button
-            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+            className="mt-4 px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800"
             onClick={() =>
               setFilters({
                 bedrooms: "",
