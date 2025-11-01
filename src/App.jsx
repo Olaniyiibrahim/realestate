@@ -132,27 +132,17 @@ const {
             />
             <Route
               path="/property/:id"
-              element={user && paymentSuccess ? (
+              element={
+                !user ? (
+                  // User not logged in - show sign in
                   <ProtectedRoute>
-                    <PropertyDetails />
+                    <SignIn />
                   </ProtectedRoute>
-                ) :(
-                  <div>
-                  {
-                  !user ?
-                    (
-                      <ProtectedRoute>
-                        <SignIn />
-                      </ProtectedRoute>
-                    )
-                    :
-                    (
-                      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                    {/* <SecurePaymentPage /> */}
+                ) : !paymentSuccess ? (
+                  // User logged in but hasn't paid - show payment page
+                  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
                     <div className="bg-white p-6 rounded-lg max-w-md w-full mx-4">
-                      <h3 className="text-xl font-bold mb-4">
-                        Get Full Access
-                      </h3>
+                      <h3 className="text-xl font-bold mb-4">Get Full Access</h3>
                       <p className="text-gray-600 mb-4">
                         Pay ₦1,000 to access all features
                       </p>
@@ -172,7 +162,6 @@ const {
                         placeholder="Enter your name"
                         className="w-full p-3 border rounded mb-4"
                       />
-
                       <div className="flex gap-4">
                         <button
                           onClick={() => window.history.back()}
@@ -190,11 +179,11 @@ const {
                       </div>
                     </div>
                   </div>
-                    )
-                    
-                  }
-                  </div>
-                 
+                ) : (
+                  // User logged in and paid - show property details
+                  <ProtectedRoute>
+                    <PropertyDetails />
+                  </ProtectedRoute>
                 )
               }
             />
