@@ -1,7 +1,5 @@
-// src/hooks/useUserType.js
-import { useState, useEffect } from 'react';
-import { supabase } from "../../lib/supabase" // Adjust import path
-
+import { useEffect, useState } from "react";
+import { supabase } from "../../lib/supabase"
 const useUserType = () => {
     const [userType, setUserType] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -13,18 +11,23 @@ const useUserType = () => {
             try {
                 setLoading(true);
                 setError(null);
-                
                 const { data: { user }, error } = await supabase.auth.getUser();
-                
                 if (error) throw error;
                 
-                setUser(user);
-                setUserType(user?.user_metadata?.user_type || 'customer');
+                if (user) {
+                    setUser(user);
+                    setUserType(user?.user_metadata?.user_type || 'customer');
+                } else {
+                    // IMPORTANT: Clear everything if no user
+                    setUser(null);
+                    setUserType(null);
+                }
                 
             } catch (error) {
                 console.error('Error getting user:', error);
                 setError(error.message);
-                setUserType('customer'); // Default fallback
+                setUser(null);
+                setUserType(null); // Changed from 'customer'
             } finally {
                 setLoading(false);
             }
@@ -32,8 +35,10 @@ const useUserType = () => {
         
         getUserType();
         
-        // Optional: Listen for auth state changes
+        // Listen for auth state changes
         const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+            console.log('Auth state changed:', event, session?.user?.email);
+            
             if (event === 'SIGNED_IN' && session?.user) {
                 setUser(session.user);
                 setUserType(session.user.user_metadata?.user_type || 'customer');
