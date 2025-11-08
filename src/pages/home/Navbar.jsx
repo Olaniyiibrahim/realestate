@@ -95,7 +95,7 @@ const Navbar = () => {
                 </NavLink>
                 
                 {/* Show navigation only if user is logged in AND has made payment */}
-                {user && paymentSuccess && (
+                {user && (
                   <>
                     <NavLink
                       to="/buy"
@@ -190,7 +190,7 @@ const Navbar = () => {
                 Home
               </NavLink>
               
-              {user && paymentSuccess && (
+              {user && (
                 <>
                   <NavLink
                     to="/buy"
