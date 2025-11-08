@@ -31,7 +31,7 @@ import { supabase } from "./lib/supabase";
 function App() {
   const [paymentSuccess, setPaymentSuccess] = useState(localStorage.getItem('hasAccessPayment') === 'true');
 const [checkingPayment, setCheckingPayment] = useState(true);
-const { user} = useUserType();
+const { user, isAgent} = useUserType();
 useEffect(() => {
   const checkUserPayment = async () => {
     setCheckingPayment(true);
@@ -138,48 +138,49 @@ const {
                   <ProtectedRoute>
                     <SignIn />
                   </ProtectedRoute>
-                ) : !paymentSuccess ? (
-                  // User logged in but hasn't paid - show payment page
-                  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="bg-white p-6 rounded-lg max-w-md w-full mx-4">
-                      <h3 className="text-xl font-bold mb-4">Get Full Access</h3>
-                      <p className="text-gray-600 mb-4">
-                        Pay ₦1,000 to access all features
-                      </p>
-                      <input
-                        type="email"
-                        name="email"
-                        value={customerInfo.email}
-                        onChange={handleInputChange}
-                        placeholder="Enter your email"
-                        className="w-full p-3 border rounded mb-4"
-                      />
-                      <input
-                        type="text"
-                        name="name"
-                        value={customerInfo.name}
-                        onChange={handleInputChange}
-                        placeholder="Enter your name"
-                        className="w-full p-3 border rounded mb-4"
-                      />
-                      <div className="flex gap-4">
-                        <button
-                          onClick={() => window.history.back()}
-                          className="flex-1 bg-gray-500 text-white p-3 rounded"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          onClick={initiatePayment}
-                          disabled={paymentLoading}
-                          className="flex-1 bg-green-600 text-white p-3 rounded"
-                        >
-                          {paymentLoading ? "Processing..." : "Pay ₦1,000"}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
+                ) 
+                // : !paymentSuccess ? (
+                //   // User logged in but hasn't paid - show payment page
+                //   <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                //     <div className="bg-white p-6 rounded-lg max-w-md w-full mx-4">
+                //       <h3 className="text-xl font-bold mb-4">Get Full Access</h3>
+                //       <p className="text-gray-600 mb-4">
+                //         Pay ₦1,000 to access all features
+                //       </p>
+                //       <input
+                //         type="email"
+                //         name="email"
+                //         value={customerInfo.email}
+                //         onChange={handleInputChange}
+                //         placeholder="Enter your email"
+                //         className="w-full p-3 border rounded mb-4"
+                //       />
+                //       <input
+                //         type="text"
+                //         name="name"
+                //         value={customerInfo.name}
+                //         onChange={handleInputChange}
+                //         placeholder="Enter your name"
+                //         className="w-full p-3 border rounded mb-4"
+                //       />
+                //       <div className="flex gap-4">
+                //         <button
+                //           onClick={() => window.history.back()}
+                //           className="flex-1 bg-gray-500 text-white p-3 rounded"
+                //         >
+                //           Cancel
+                //         </button>
+                //         <button
+                //           onClick={initiatePayment}
+                //           disabled={paymentLoading}
+                //           className="flex-1 bg-green-600 text-white p-3 rounded"
+                //         >
+                //           {paymentLoading ? "Processing..." : "Pay ₦1,000"}
+                //         </button>
+                //       </div>
+                //     </div>
+                //   </div>
+                : (
                   // User logged in and paid - show property details
                   <ProtectedRoute>
                     <PropertyDetails />
@@ -205,7 +206,7 @@ const {
             />
 
             {
-              user && paymentSuccess && (
+              isAgent && (
                 <Route
               path="/upload-property"
               element={

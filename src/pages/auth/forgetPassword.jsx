@@ -46,7 +46,6 @@ function ForgetPassword() {
     try {
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
         // redirectTo: "http://localhost:5173/forgetpassword",
-
         redirectTo :("/forgetpassword")
         // setEmail("")
         

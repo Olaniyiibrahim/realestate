@@ -17,14 +17,6 @@ export default function EmailVerification() {
     const {loading, startLoading, stopLoading} = useLoading()
     const [verifyEmailApi] = useVerifyEmailMutation();
     const [sendEmailVerificationApi] = useCreateEmailVerificationMutation();
-    // const { values, errors, touched, handleChange, handleSubmit } = useFormik({
-    //     initialValues: {
-    //         email: "",
-    //         code: "",
-    //         type: "email-verification",
-    //     },
-    //     onSubmit: () => initVerifyEmail(),
-    // });
     const numberSequence = [0, 1, 2, 3, 4, 5]
     const [userInput, setUserInput] = useState<{ [key: string]: string }>({
             value1: "",
