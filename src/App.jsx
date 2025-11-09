@@ -59,54 +59,54 @@ useEffect(() => {
   if (user) checkUserPayment();
 }, [user]);
 
-const { 
-  loading: paymentLoading, 
-  customerInfo, 
-  handleInputChange, 
-  initiatePayment 
-} = usePaystackPayment({
-  amount: 1000,
-  onSuccess: async (response) => {
-    console.log('Payment successful:', response);
+// const { 
+//   loading: paymentLoading, 
+//   customerInfo, 
+//   handleInputChange, 
+//   initiatePayment 
+// } = usePaystackPayment({
+//   amount: 1000,
+//   onSuccess: async (response) => {
+//     console.log('Payment successful:', response);
     
-    try {
-      const { data: { user } } = await supabase.auth.getUser();
+//     try {
+//       const { data: { user } } = await supabase.auth.getUser();
       
-      if (user) {
-        const { data, error } = await supabase.from('payments').insert({
-          user_id: user.id,
-          amount: 1000,
-          reference: response.reference,
-          status: 'successful',
-          payment_data: response
-        });
+//       if (user) {
+//         const { data, error } = await supabase.from('payments').insert({
+//           user_id: user.id,
+//           amount: 1000,
+//           reference: response.reference,
+//           status: 'successful',
+//           payment_data: response
+//         });
 
-        if (error) {
-          console.error('Database insert error:', error);
-          toast.error('Payment recorded but failed to save: ' + error.message);
-          return;
-        }
+//         if (error) {
+//           console.error('Database insert error:', error);
+//           toast.error('Payment recorded but failed to save: ' + error.message);
+//           return;
+//         }
 
-        console.log('Payment saved to database:', data);
+//         console.log('Payment saved to database:', data);
         
-        // Update state immediately
-        setPaymentSuccess(true);
-        localStorage.setItem('hasAccessPayment', 'true');
+//         // Update state immediately
+//         setPaymentSuccess(true);
+//         localStorage.setItem('hasAccessPayment', 'true');
         
-        toast.success('Payment successful! Redirecting...');
+//         toast.success('Payment successful! Redirecting...');
         
-        // Force refresh after short delay
-        setTimeout(() => {
-          window.location.reload();
-        }, 1000);
-      }
-    } catch (error) {
-      console.error('Payment save error:', error);
-      toast.error('Error saving payment: ' + error.message);
-    }
-  },
-  enableVerification: false 
-});
+//         // Force refresh after short delay
+//         setTimeout(() => {
+//           window.location.reload();
+//         }, 1000);
+//       }
+//     } catch (error) {
+//       console.error('Payment save error:', error);
+//       toast.error('Error saving payment: ' + error.message);
+//     }
+//   },
+//   enableVerification: false 
+// });
 
   return (
     <BrowserRouter>

@@ -45,12 +45,24 @@ const Navbar = () => {
   }, [user]); // Run when user changes
   
   const handleSignOut = async () => {
-    let {data:{error}  } = await supabase.auth.signOut();
-    // Clear payment access on sign out
+    console.log('🔄 Starting sign out...')
+    
+    // Check current session before sign out
+    const { data: { session } } = await supabase.auth.getSession()
+    console.log('Before sign out - Session:', session)
+    
+    const { error } = await supabase.auth.signOut();
+    console.log('Sign out error:', error)
+    
+    // Check session after sign out
+    const { data: { session: newSession } } = await supabase.auth.getSession()
+    console.log('After sign out - Session:', newSession)
+    
     localStorage.removeItem('hasAccessPayment');
     setPaymentSuccess(false);
-  };
-
+    
+    console.log('✅ Sign out completed')
+};
   if (loading) return <div>Loading...</div>;
 
   const handleLinkClick = (path) => {
@@ -213,6 +225,15 @@ const Navbar = () => {
                   >
                     Contact
                   </NavLink>
+                  {isAgent && (
+                      <NavLink
+                        to="/upload-property" 
+                        className="flex items-center bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium ml-4"
+                      >
+                        <PlusIcon className="h-4 w-4 mr-1" />
+                        Add Property
+                      </NavLink>
+                    )}
                 </>
               )}
 
