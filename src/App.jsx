@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+// import { supabase } from "./lib/supabase";
 import {
   BrowserRouter as Router,
   Routes,
