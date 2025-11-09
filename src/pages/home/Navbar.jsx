@@ -9,40 +9,40 @@ import SecurePaymentPage from '../auth/PayMe';
 
 const Navbar = () => {
   // Check localStorage to persist payment status across page reloads
-  const [paymentSuccess, setPaymentSuccess] = useState(
-    localStorage.getItem('hasAccessPayment') === 'true'
-  );
+  // const [paymentSuccess, setPaymentSuccess] = useState(
+  //   localStorage.getItem('hasAccessPayment') === 'true'
+  // );
   
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("/");
   const { user, loading, isAgent } = useUserType();
 
-  useEffect(() => {
-    const checkUserPayment = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
+  // useEffect(() => {
+  //   const checkUserPayment = async () => {
+  //     const { data: { user } } = await supabase.auth.getUser();
       
-      if (user) {
-        const { data: payments } = await supabase
-          .from('payments')
-          .select('*')
-          .eq('user_id', user.id)
-          .eq('status', 'successful')
-          .limit(1);
+  //     if (user) {
+  //       const { data: payments } = await supabase
+  //         .from('payments')
+  //         .select('*')
+  //         .eq('user_id', user.id)
+  //         .eq('status', 'successful')
+  //         .limit(1);
         
-        if (payments && payments.length > 0) {
-          setPaymentSuccess(true);
-          localStorage.setItem('hasAccessPayment', 'true');
-        } else {
-          setPaymentSuccess(false);
-          localStorage.removeItem('hasAccessPayment');
-        }
-      }
-    };
+  //       // if (payments && payments.length > 0) {
+  //       //   setPaymentSuccess(true);
+  //       //   localStorage.setItem('hasAccessPayment', 'true');
+  //       // } else {
+  //       //   setPaymentSuccess(false);
+  //       //   localStorage.removeItem('hasAccessPayment');
+  //       // }
+  //     }
+  //   };
 
-    if (user) {
-      checkUserPayment();
-    }
-  }, [user]); // Run when user changes
+  //   if (user) {
+  //     checkUserPayment();
+  //   }
+  // }, [user]); // Run when user changes
   
   const handleSignOut = async () => {
     console.log('🔄 Starting sign out...')
@@ -58,8 +58,8 @@ const Navbar = () => {
     const { data: { session: newSession } } = await supabase.auth.getSession()
     console.log('After sign out - Session:', newSession)
     
-    localStorage.removeItem('hasAccessPayment');
-    setPaymentSuccess(false);
+    // localStorage.removeItem('hasAccessPayment');
+    // setPaymentSuccess(false);
     
     console.log('✅ Sign out completed')
 };

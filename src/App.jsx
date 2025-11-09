@@ -26,89 +26,13 @@ import PageNotFound from "./components/PageNotFound";
 import ForgetPassword from "./pages/auth/forgetPassword";
 import useUserType from "./Utilities/hooks/useUserType";
 import SecurePaymentPage from "./pages/auth/PayMe";
-import { usePaystackPayment } from "./Utilities/usePayment";
-import { supabase } from "./lib/supabase";
+// import { usePaystackPayment } from "./Utilities/usePayment";
+// import { supabase } from "./lib/supabase";
 
 function App() {
-  const [paymentSuccess, setPaymentSuccess] = useState(localStorage.getItem('hasAccessPayment') === 'true');
-const [checkingPayment, setCheckingPayment] = useState(true);
-const { user, isAgent} = useUserType();
-useEffect(() => {
-  const checkUserPayment = async () => {
-    setCheckingPayment(true);
-    const { data: { user } } = await supabase.auth.getUser();
-    
-    if (user) {
-      const { data, error } = await supabase
-        .from('payments')
-        .select('*')
-        .eq('user_id', user.id)
-        .eq('status', 'successful')
-        .maybeSingle();  // instead of limit(1)
-
-      if (data) {
-        setPaymentSuccess(true);
-        localStorage.setItem('hasAccessPayment', 'true');
-      } else {
-        setPaymentSuccess(false);
-        localStorage.removeItem('hasAccessPayment');
-      }
-    }
-    setCheckingPayment(false);
-  };
-
-  if (user) checkUserPayment();
-}, [user]);
-
-// const { 
-//   loading: paymentLoading, 
-//   customerInfo, 
-//   handleInputChange, 
-//   initiatePayment 
-// } = usePaystackPayment({
-//   amount: 1000,
-//   onSuccess: async (response) => {
-//     console.log('Payment successful:', response);
-    
-//     try {
-//       const { data: { user } } = await supabase.auth.getUser();
-      
-//       if (user) {
-//         const { data, error } = await supabase.from('payments').insert({
-//           user_id: user.id,
-//           amount: 1000,
-//           reference: response.reference,
-//           status: 'successful',
-//           payment_data: response
-//         });
-
-//         if (error) {
-//           console.error('Database insert error:', error);
-//           toast.error('Payment recorded but failed to save: ' + error.message);
-//           return;
-//         }
-
-//         console.log('Payment saved to database:', data);
-        
-//         // Update state immediately
-//         setPaymentSuccess(true);
-//         localStorage.setItem('hasAccessPayment', 'true');
-        
-//         toast.success('Payment successful! Redirecting...');
-        
-//         // Force refresh after short delay
-//         setTimeout(() => {
-//           window.location.reload();
-//         }, 1000);
-//       }
-//     } catch (error) {
-//       console.error('Payment save error:', error);
-//       toast.error('Error saving payment: ' + error.message);
-//     }
-//   },
-//   enableVerification: false 
-// });
-
+//   const [paymentSuccess, setPaymentSuccess] = useState(localStorage.getItem('hasAccessPayment') === 'true');
+// const [checkingPayment, setCheckingPayment] = useState(true);
+const {isAgent} = useUserType();
   return (
     <BrowserRouter>
       <div className="min-h-screen flex flex-col bg-gray-50">
@@ -134,17 +58,9 @@ useEffect(() => {
             <Route
               path="/property/:id"
               element={
-                user ? (
                   <ProtectedRoute>
                     <PropertyDetails />
                   </ProtectedRoute>
-                  
-                ) 
-                : (
-                  <ProtectedRoute>
-                    <SignIn />
-                  </ProtectedRoute>
-                )
               }
             />
             <Route
@@ -165,8 +81,8 @@ useEffect(() => {
             />
 
             {
-              isAgent && (
-                <Route
+            isAgent && (
+              <Route
               path="/upload-property"
               element={
                 <ProtectedRoute>
